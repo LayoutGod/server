@@ -29,6 +29,8 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -57,4 +59,4 @@ urlpatterns = [
     path('fetchuser/', accountview.fetchuser.as_view()),
 ]
 
-urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += staticfiles_urlpatterns()
